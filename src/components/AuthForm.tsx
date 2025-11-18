@@ -33,13 +33,15 @@ const AuthForm = () => {
 
   return (
     <div className="flex items-center justify-center px-5 mx-auto w-full">
-      <div className="bg-white shadow-[0_0_45px_0_rgba(0,0,0,0.05)] rounded-3xl max-w-md w-full px-8 py-5">
-        <div className="flex items-center justify-center gap-2 mb-2">
+      <div className="bg-white rounded-3xl max-w-md w-full px-8 py-6">
+        <div className="flex items-center justify-center gap-2 mb-3">
           <img src="/icons/logo.svg" alt="logo" className="h-10 w-10" />
-          <h2 className="text-3xl text-blue-700">RetinaCare</h2>
+          <h2 className="text-2xl text-blue-700 tracking-tight font-semibold">
+            RetinaCare
+          </h2>
         </div>
 
-        <div className="text-center mb-2">
+        <div className="text-center mb-4">
           <h3 className="text-xl text-gray-800 font-medium">
             {signState === "Sign Up"
               ? "Create your Account"
@@ -51,7 +53,7 @@ const AuthForm = () => {
           <form
             onSubmit={handleSubmit(onSubmit)}
             noValidate
-            className="w-full space-y-2"
+            className="w-full space-y-3"
           >
             {signState === "Sign Up" ? (
               <TextInput
