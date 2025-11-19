@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-
+import { type Variants } from "framer-motion";
 const WhyChooseUs: React.FC = () => {
   const backgroundImage = "/images/chooseus.jpg";
 
@@ -12,16 +12,16 @@ const WhyChooseUs: React.FC = () => {
   const parallaxY = useTransform(scrollY, [0, 800], [0, 120]);
 
   // CARD ANIMATION (GSAP-like)
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 50, scale: 0.96 },
-    show: (i: number) => ({
+    show: (custom: number) => ({
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
         duration: 1.1,
-        delay: i * 0.22,
-        ease: [0.22, 1, 0.36, 1],
+        delay: custom * 0.22,
+        ease: "easeInOut",
       },
     }),
   };
@@ -30,7 +30,6 @@ const WhyChooseUs: React.FC = () => {
     <section ref={sectionRef} className="w-full md:px-8 py-8 md:py-10">
       <div className="max-w-[1374px] mx-auto px-6 md:px-16.5 relative">
         <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-xl">
-
           {/* BG IMAGE WITH ZOOM + PARALLAX */}
           <motion.img
             src={backgroundImage}
@@ -62,10 +61,8 @@ const WhyChooseUs: React.FC = () => {
 
           {/* CONTENT WRAPPER */}
           <div className="absolute inset-0">
-
             {/* MOBILE SCROLLABLE CARDS */}
             <div className="md:hidden w-full max-h-[430px] overflow-y-auto px-3 pb-10 mt-6 space-y-6 relative z-20 scroll-smooth">
-
               {[
                 {
                   title: "ADVANCED TECHNOLOGY",
@@ -150,12 +147,13 @@ const WhyChooseUs: React.FC = () => {
                     boxShadow: "0px 25px 45px rgba(255,255,255,0.25)",
                   }}
                 >
-                  <h3 className="text-white font-bold text-[38px] leading-tight">{card.title}</h3>
+                  <h3 className="text-white font-bold text-[38px] leading-tight">
+                    {card.title}
+                  </h3>
                   <p className="text-white/90 mt-4 text-[15px]">{card.text}</p>
                 </motion.div>
               ))}
             </div>
-
           </div>
         </div>
       </div>
