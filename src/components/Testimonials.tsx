@@ -1,4 +1,4 @@
-import  { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 
 const testimonials = [
@@ -6,25 +6,25 @@ const testimonials = [
     name: "Aisha M.",
     role: "Teacher",
     text: `I never realized how important regular eye checks were until this platform guided me. Thanks to their early detection tools, my diabetic retinopathy was caught in time. I feel so much more in control of my health now!`,
-    avatar: "/public/images/test1.png",
+    avatar: "/images/test1.png",
   },
   {
     name: "Emeka. O",
     role: "Accountant",
     text: `The support and guidance I received have been incredible. They don't just focus on the disease—they care about me as a person.`,
-    avatar: "/public/images/test2.png",
+    avatar: "/images/test2.png",
   },
   {
     name: "Chinwe. U",
     role: "Nurse",
     text: `I was nervous about diabetic retinopathy screenings, but the process was simple and compassionate. The personalized advice has made managing my eye health easier.`,
-    avatar: "/public/images/test3.png",
+    avatar: "/images/test3.png",
   },
   {
     name: "Tunde. A",
     role: "Software Developer",
     text: `As a busy person, their reminders and guidance have made it easy to keep track of my eye health.`,
-    avatar: "/public/images/test4.png",
+    avatar: "/images/test4.png",
   },
 ];
 
@@ -42,9 +42,11 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full py-8 md:px-26 px-6 md:py-10">
+    <section
+      ref={sectionRef}
+      className="relative w-full py-8 md:px-26 px-6 md:py-10"
+    >
       <div className="bg-[#5DE7A9] rounded-[30px] max-w-7xl mx-auto px-6 md:px-6 py-10 md:py-16">
-
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -90,7 +92,9 @@ export default function Testimonials() {
                   <p className="text-white font-semibold text-lg">
                     {testimonials[index].name}
                   </p>
-                  <p className="text-[#5DE7A9] font-semibold text-sm">{testimonials[index].role}</p>
+                  <p className="text-[#5DE7A9] font-semibold text-sm">
+                    {testimonials[index].role}
+                  </p>
                 </div>
               </motion.div>
             </motion.div>

@@ -1,17 +1,17 @@
 import { motion } from "framer-motion";
 
 const partners = [
-  "/public/images/flexisaf.png",
-  "/public/images/nhis.png",
-  "/public/images/sdol.png",
-  "/public/images/nhs.png",
-  "/public/images/unicef.png",
-  "/public/images/cross.png",
+  "/images/flexisaf.png",
+  "/images/nhis.png",
+  "/images/sdol.png",
+  "/images/nhs.png",
+  "/images/unicef.png",
+  "/images/cross.png",
 ];
 
 export default function PartnersStrip() {
   return (
-    <section className="w-full py-8 flex justify-center">
+    <section className="w-full py-8 px-10 flex justify-center">
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}

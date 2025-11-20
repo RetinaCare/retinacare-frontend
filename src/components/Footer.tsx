@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="w-full bg-[#F5FBFF] pt-16 pb-8">
-
       {/* CENTER WRAPPER – prevents width overflow */}
       <motion.div
         className="max-w-[1440px] mx-auto px-6 md:px-12 grid md:grid-cols-4 gap-12"
@@ -17,7 +16,7 @@ export default function Footer() {
         <div className="md:col-span-2">
           <Link to="/" className="flex items-center gap-3 mb-4">
             <img
-              src="/public/images/logo1.png"
+              src="/images/logo1.png"
               alt="Retina Care Logo"
               className="w-10 h-[50px] sm:w-12 sm:h-[58px]"
             />
@@ -33,9 +32,9 @@ export default function Footer() {
           <p className="font-semibold mt-6 mb-3 text-black">Connect with Us</p>
 
           <div className="flex gap-4">
-            <img src="/public/images/linkedin.png" className="w-6 h-6" />
-            <img src="/public/images/fbk.png" className="w-6 h-6" />
-            <img src="/public/images/insta.png" className="w-6 h-6" />
+            <img src="/images/linkedin.png" className="w-6 h-6" />
+            <img src="/images/fbk.png" className="w-6 h-6" />
+            <img src="/images/insta.png" className="w-6 h-6" />
           </div>
         </div>
 
@@ -46,9 +45,13 @@ export default function Footer() {
           </h3>
 
           <ul className="space-y-3 text-black font-['Inter'] text-sm">
-            <li><Link to="/">Home</Link></li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
             <li>Chat with Us</li>
-            <li><Link to="/about">About Us</Link></li>
+            <li>
+              <Link to="/about">About Us</Link>
+            </li>
             <li>Service</li>
           </ul>
         </div>
@@ -65,7 +68,9 @@ export default function Footer() {
           </div>
 
           {/* Subscribe */}
-          <p className="text-sm font-semibold mb-2 text-black">Enter your e-mail</p>
+          <p className="text-sm font-semibold mb-2 text-black">
+            Enter your e-mail
+          </p>
 
           <div className="flex items-center rounded-full border border-gray-300 bg-white overflow-hidden">
             <input
@@ -86,7 +91,6 @@ export default function Footer() {
           © 2025 RetinaCare. All Rights Reserved.
         </p>
       </div>
-
     </footer>
   );
 }

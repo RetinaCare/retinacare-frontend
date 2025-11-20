@@ -11,16 +11,16 @@ const Mission: React.FC = () => {
     <section
       ref={ref}
       id="aboutus"
-        className="
+      className="
           relative w-full 
           flex justify-center 
           py-10 md:py-10 
           px-6 md:px-12 lg:px-26
           overflow-hidden
         "
-      >
-        <div
-          className="
+    >
+      <div
+        className="
             w-full 
             max-w-[1440px] 
             bg-[#63E6BE] 
@@ -30,8 +30,7 @@ const Mission: React.FC = () => {
             items-center 
             overflow-hidden
           "
-        >
-        
+      >
         {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -60,7 +59,7 @@ const Mission: React.FC = () => {
               max-w-lg
             "
           >
-            Our mission at Retina Care is to provide comprehensive personalized 
+            Our mission at Retina Care is to provide comprehensive personalized
             healthcare that improves the lives of patients.
           </p>
 
@@ -112,36 +111,33 @@ const Mission: React.FC = () => {
               w-fit
             "
           >
-            <Link
-              to="/login"
-              className=""
-            >
-              Get Started 
+            <Link to="/login" className="">
+              Get Started
             </Link>
           </motion.button>
         </motion.div>
 
         {/* RIGHT IMAGE */}
         <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="
               relative
               w-full
               flex justify-end
             "
-          >
-            <img
-              src="/public/images/mission.jpg"
-              alt="Mission"
-              className="
+        >
+          <img
+            src="/images/mission.jpg"
+            alt="Mission"
+            className="
                 w-full 
                 h-80 sm:h-[400px] md:h-[520px] lg:h-[580px]
                 object-cover
                 rounded-r-[40px]
               "
-            />
+          />
 
           {/* Soft gradient overlay (subtle, professional) */}
           <div
@@ -154,7 +150,6 @@ const Mission: React.FC = () => {
             "
           ></div>
         </motion.div>
-
       </div>
     </section>
   );
