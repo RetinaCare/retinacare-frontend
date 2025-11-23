@@ -60,8 +60,7 @@ const ServiceHighlights: React.FC = () => {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
               <h2 className="
-                font-['Montserrat'] 
-                font-normal 
+              font-normal 
                 text-[28px] md:text-[32px] 
                 text-white 
                 leading-[100%] 
@@ -71,8 +70,7 @@ const ServiceHighlights: React.FC = () => {
               </h2>
 
               <p className="
-                font-['Montserrat'] 
-                font-medium 
+              font-medium 
                 text-[16px] 
                 text-white 
                 text-center 
@@ -90,7 +88,7 @@ const ServiceHighlights: React.FC = () => {
                 >
                   <Link 
                     to="/" 
-                    className="underline font-['Montserrat'] text-[18px] md:text-[20px] text-white"
+                    className="underline text-[18px] md:text-[20px] text-white"
                   >
                     View all
                   </Link>

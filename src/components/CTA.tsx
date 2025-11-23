@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
-const backgroundImage = "/public/images/doct.jpg"; 
+const backgroundImage = "/images/doct.jpg"; 
 
 
 const CTAHealthBanner: React.FC = () => {

@@ -5,7 +5,7 @@ const WhyChooseUs: React.FC = () => {
   const backgroundImage = "/images/chooseus.jpg";
 
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-120px" });
+  const isInView = useInView(sectionRef, { once: false, margin: "-120px" });
 
   // PARALLAX
   const { scrollY } = useScroll();

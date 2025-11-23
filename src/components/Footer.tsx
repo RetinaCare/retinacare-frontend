@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#F5FBFF] pt-16 pb-8">
+    <footer id="contact" className="w-full bg-[#F5FBFF] pt-16 pb-8">
       {/* CENTER WRAPPER – prevents width overflow */}
       <motion.div
         className="max-w-[1440px] mx-auto px-6 md:px-12 grid md:grid-cols-4 gap-12"
@@ -14,22 +14,22 @@ export default function Footer() {
       >
         {/* Column 1 — Brand */}
         <div className="md:col-span-2">
-          <Link to="/" className="flex items-center gap-3 mb-4">
-            <img
+          <a href="#" className="flex items-center gap-3 mb-4">
+            {/* <img
               src="/images/logo1.png"
               alt="Retina Care Logo"
               className="w-10 h-[50px] sm:w-12 sm:h-[58px]"
-            />
-            <span className="font-['Inter'] text-[32px] md:text-[48px] text-black">
-              Retina Care
+            /> */}
+            <span className="text-[32px] md:text-[48px] text-blue-700 font-semibold">
+              RetinaCare
             </span>
-          </Link>
+          </a>
 
-          <p className="text-black font-['Inter'] text-sm md:text-[18px] max-w-[450px]">
+          <p className="text-black text-sm md:text-[18px] max-w-[450px]">
             Helping you manage Retinal with smarter tools and caring expert.
           </p>
 
-          <p className="font-semibold mt-6 mb-3 text-black">Connect with Us</p>
+          <p className="font-semibold mt-10 mb-5 text-black">Connect with Us</p>
 
           <div className="flex gap-4">
             <img src="/images/linkedin.png" className="w-6 h-6" />
@@ -39,30 +39,30 @@ export default function Footer() {
         </div>
 
         {/* Column 2 — Quick Links */}
-        <div>
-          <h3 className="font-bold text-black text-lg mb-6 font-['Inter']">
+        <div className="md:mt-22">
+          <h3 className="font-bold text-black text-lg mb-6">
             Quick Links
           </h3>
 
-          <ul className="space-y-3 text-black font-['Inter'] text-sm">
+          <ul className="space-y-3 text-black text-sm">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/#">Home</Link>
             </li>
             <li>Chat with Us</li>
             <li>
-              <Link to="/about">About Us</Link>
+              <Link to="/#">About Us</Link>
             </li>
             <li>Service</li>
           </ul>
         </div>
 
         {/* Column 3 — Contact + Subscribe */}
-        <div>
-          <h3 className="font-bold text-black text-lg mb-6 font-['Inter']">
+        <div className="md:mt-22">
+          <h3 className="font-bold text-black text-lg mb-6 ">
             Contact Us
           </h3>
 
-          <div className="mb-6 text-black font-['Inter'] text-sm">
+          <div className="mb-6 text-black text-sm">
             <p className="mb-1">Hours</p>
             <p>Monday to Sunday: 8AM – 6PM</p>
           </div>
@@ -87,7 +87,7 @@ export default function Footer() {
 
       {/* COPYRIGHT */}
       <div className="border-t border-black mt-12 pt-6">
-        <p className="text-center text-black font-['Inter'] text-sm">
+        <p className="text-center text-black text-sm">
           © 2025 RetinaCare. All Rights Reserved.
         </p>
       </div>

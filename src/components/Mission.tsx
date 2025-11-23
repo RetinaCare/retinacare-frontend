@@ -10,7 +10,7 @@ const Mission: React.FC = () => {
   return (
     <section
       ref={ref}
-      id="aboutus"
+      id="about"
       className="
           relative w-full 
           flex justify-center 
@@ -40,9 +40,8 @@ const Mission: React.FC = () => {
         >
           <h2
             className="
-              font-['Montserrat'] 
-              font-bold 
-              text-[#000000]
+            font-bold 
+             text-[#000000]
               text-[30px] sm:text-[36px] md:text-[45px]
               leading-[120%]
             "
@@ -52,8 +51,7 @@ const Mission: React.FC = () => {
 
           <p
             className="
-              font-['Montserrat'] 
-              text-[#000000]
+            text-[#000000]
               text-[16px] sm:text-[18px] md:text-[20px]
               leading-[160%]
               max-w-lg
@@ -77,7 +75,7 @@ const Mission: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="flex items-center gap-3 text-[18px] md:text-[20px] font-medium font-['Montserrat'] text-[#000000]"
+                className="flex items-center gap-3 text-[18px] md:text-[20px] font-medium text-[#000000]"
               >
                 <div
                   className="
@@ -96,15 +94,14 @@ const Mission: React.FC = () => {
 
           {/* BUTTON */}
           <motion.button
-            whileHover={{ scale: 1.05, backgroundColor: "#1c2f6d" }}
+            whileHover={{ scale: 1.05, backgroundColor: "#021ab2" }}
             whileTap={{ scale: 0.96 }}
             className="
-              bg-[#233D91] 
+              bg-blue-700
               text-white 
               px-7 py-3 
               rounded-full 
-              font-medium 
-              font-['Montserrat']
+              font-medium
               text-[18px] md:text-[20px]
               shadow 
               mt-6

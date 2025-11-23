@@ -1,79 +1,111 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState("home");
+
+  // SCROLL SPY (detect active section)
+  useEffect(() => {
+  const sections = ["home", "about", "contact"];
+
+  const handleScroll = () => {
+    let currentSection = "home";
+
+    sections.forEach((id) => {
+      const sec = document.getElementById(id);
+
+      if (sec) {
+        const top = sec.offsetTop - 150; // navbar height offset
+        const bottom = top + sec.offsetHeight;
+
+        if (window.scrollY >= top && window.scrollY < bottom) {
+          currentSection = id;
+        }
+      }
+    });
+
+    setActiveSection(currentSection);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+
+  const activeColor = "text-blue-700 font-semibold";
 
   return (
     <nav className="w-full fixed top-0 left-0 z-50 bg-[#F5FBFF] shadow-sm">
-      {/* CENTERED + MAX WIDTH */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-4 flex items-center justify-between">
+      <div className="mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-2 flex items-center justify-between">
+        
         {/* LOGO */}
-        <Link to="/" className="flex items-center gap-3">
-          <img
-            src="/images/logo1.png"
-            alt="Retina Care Logo"
-            className="w-10 h-12 sm:w-12 sm:h-[55px]"
-          />
-          <span className="font-['Times New Roman'] text-[28px] sm:text-[36px] md:text-[42px] font-normal text-[#38B6FF]">
-            Retina Care
+        <a href="#home" className="flex items-center">
+          <span className="text-[22px] sm:text-[28px] md:text-[32px] font-semibold text-blue-700">
+            RetinaCare
           </span>
-        </Link>
+        </a>
 
         {/* DESKTOP MENU */}
-        <ul className="hidden md:flex items-center gap-8 text-[16px] lg:text-[20px] font-['Montserrat']">
+        <ul className="hidden md:flex items-center gap-6 text-[15px] lg:text-[17px]">
+
           <li>
-            <Link className="hover:text-[#29609B] text-[#366182]" to="/">
+            <a
+              href="#home"
+              className={`${activeSection === "home" ? activeColor : "text-black"} hover:text-blue-700 font-semibold`}
+            >
               Home
-            </Link>
+            </a>
           </li>
+
           <li>
-            <Link to="#" className="hover:text-[#29609B] text-black">
+            <a
+              href="#about"
+              className={`${activeSection === "about" ? activeColor : "text-black"} hover:text-blue-700 font-semibold`}
+            >
               About Us
-            </Link>
+            </a>
           </li>
 
           {/* SERVICES DROPDOWN */}
           <li className="relative group cursor-pointer">
-            <div className="flex items-center gap-1 hover:text-[#29609B] text-black">
-              Services <span>▼</span>
+            <div
+              className={`flex items-center gap-1 ${
+                activeSection === "services" ? activeColor : "text-black"
+              } hover:text-blue-700 font-semibold`}
+            >
+              Services ▼
             </div>
 
-            <div className="absolute left-0 mt-3 hidden group-hover:block bg-white shadow-lg rounded-lg py-3 w-56">
-              <Link
-                to="/eye-screening"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
+            <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-md rounded-lg py-2 w-56">
+              <Link to="/eye-screening" className="block px-4 py-2 hover:bg-gray-100">
                 Eye Screening & Early Detection
               </Link>
-              <Link
-                to="/risk-assessment"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
+              <Link to="/risk-assessment" className="block px-4 py-2 hover:bg-gray-100">
                 Risk Assessment & Reports
               </Link>
             </div>
           </li>
 
           <li>
-            <Link className="hover:text-[#29609B] text-black" to="#">
+            <a
+              href="#contact"
+              className={`${activeSection === "contact" ? activeColor : "text-black"} hover:text-blue-700 font-semibold`}
+            >
               Contact Us
-            </Link>
+            </a>
           </li>
         </ul>
 
-        {/* SIGN IN */}
+        {/* SIGN IN BUTTON */}
         <div className="hidden md:flex items-center">
           <Link
             to="/login"
-            className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-blue-50 transition"
+            className="px-4 py-2 rounded-md border-2 border-[#0a80ff] text-blue-700 font-semibold hover:text-[18px] hover:bg-[#c8e0f3] transition"
           >
-            <img src="/images/Frame 60.png" className="w-10 h-10" />
-            <span className="text-[18px] lg:text-[20px] font-['Montserrat'] text-black">
-              Sign In
-            </span>
+            Sign In
           </Link>
         </div>
 
@@ -97,21 +129,31 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-white px-6 pb-5 pt-6 shadow-md w-full"
+            className="md:hidden bg-white px-6 pb-5 pt-4 shadow-md w-full"
           >
-            <ul className="flex flex-col gap-5 text-gray-800 font-['Montserrat'] text-[17px]">
+            <ul className="flex flex-col gap-5 text-gray-800 text-[16px]">
+
               <li>
-                <Link onClick={() => setOpen(false)} to="/">
+                <a
+                  href="#home"
+                  onClick={() => setOpen(false)}
+                  className={`${activeSection === "home" ? activeColor : "text-black"} hover:text-blue-700`}
+                >
                   Home
-                </Link>
-              </li>
-              <li>
-                <Link onClick={() => setOpen(false)} to="3">
-                  About Us
-                </Link>
+                </a>
               </li>
 
-              {/* MOBILE DROPDOWN */}
+              <li>
+                <a
+                  href="#about"
+                  onClick={() => setOpen(false)}
+                  className={activeSection === "about" ? activeColor : ""}
+                >
+                  About Us
+                </a>
+              </li>
+
+              {/* MOBILE SERVICES DROPDOWN */}
               <li>
                 <button
                   onClick={() =>
@@ -121,7 +163,7 @@ export default function Navbar() {
                   }
                   className="flex items-center justify-between w-full"
                 >
-                  Services <span>▼</span>
+                  Services ▼
                 </button>
 
                 <AnimatePresence>
@@ -137,10 +179,7 @@ export default function Navbar() {
                         Eye Screening & Early Detection
                       </Link>
 
-                      <Link
-                        onClick={() => setOpen(false)}
-                        to="/risk-assessment"
-                      >
+                      <Link onClick={() => setOpen(false)} to="/risk-assessment">
                         Risk Assessment & Reports
                       </Link>
                     </motion.div>
@@ -149,15 +188,19 @@ export default function Navbar() {
               </li>
 
               <li>
-                <Link onClick={() => setOpen(false)} to="/contact">
+                <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className={activeSection === "contact" ? activeColor : ""}
+                >
                   Contact Us
-                </Link>
+                </a>
               </li>
 
               <Link
                 to="/login"
                 onClick={() => setOpen(false)}
-                className="border border-blue-600 text-blue-600 px-5 py-2 rounded-md text-center mt-1"
+                className="border border-[#29609B] text-[#29609B] px-5 py-2 rounded-md text-center mt-1"
               >
                 Sign In
               </Link>

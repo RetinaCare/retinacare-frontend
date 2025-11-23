@@ -18,8 +18,8 @@ const Hero: React.FC = () => {
     >
       {/* Background Illustration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 -right-20 w-[380px] h-[380px] bg-[#C6E7FF] rounded-full blur-[120px] opacity-40"></div>
-        <div className="absolute top-10 left-0 w-[300px] h-[300px] bg-[#E0F3FF] rounded-full blur-[140px] opacity-50"></div>
+        <div className="absolute -top-32 -right-20 w-[380px] h-[380px] bg-[#5696c3] rounded-full blur-[120px] opacity-40"></div>
+        <div className="absolute top-10 left-0 w-[300px] h-[300px] bg-[#5696c3] rounded-full blur-[140px] opacity-50"></div>
       </div>
 
       {/* GRID */}
@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
         >
           <h1
             className="
-              font-['Montserrat'] text-[#000000]
+              text-[#000000]
               font-bold
               text-[32px] sm:text-[36px] md:text-[48px] lg:text-[55px]
               leading-[120%]
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
 
           <p
             className="
-              font-['Montserrat'] text-[#000000]
+              text-[#000000]
               text-[16px] sm:text-[18px] md:text-[20px]
               leading-[160%]
               max-w-xl
@@ -67,7 +67,6 @@ const Hero: React.FC = () => {
                 px-6 py-3 
                 rounded-xl 
                 text-[18px] md:text-[20px] 
-                font-medium font-['Montserrat']
                 text-black
                 transition-all duration-300
                 w-full sm:w-auto
@@ -78,15 +77,15 @@ const Hero: React.FC = () => {
 
             {/* Learn More Button */}
             <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: "#F0F7FF" }}
+              whileHover={{ scale: 1.05, backgroundColor: "#021ab2" }}
               whileTap={{ scale: 0.97 }}
               className="
-              bg-[#233D91] 
+              bg-blue-700 
               text-white 
               px-7 py-3 
               rounded-full 
               font-medium 
-              font-['Montserrat']
+              
               text-[18px] md:text-[20px]
               shadow 
               mb-2

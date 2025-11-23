@@ -52,7 +52,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center font-['Inter']"
+          className="text-center"
         >
           <h2 className="text-[#000000] font-semibold text-[30px] md:text-[48px] leading-tight">
             Testimonials
