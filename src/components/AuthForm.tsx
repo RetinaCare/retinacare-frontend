@@ -7,6 +7,9 @@ import { authSchema } from "../lib/validation/authSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router";
+import api from "../lib/config/api";
+import { AxiosError } from "axios";
+import { toast } from "react-toastify";
 
 const AuthForm = () => {
   const [signState, setSignState] = useState<"Sign In" | "Sign Up">("Sign In");
@@ -28,17 +31,46 @@ const AuthForm = () => {
     setValue("signState", signState);
   }, [signState, setValue]);
 
-  const onSubmit: SubmitHandler<AuthSchema> = (data) => {
-    console.log(data);
-    navigate("/predictor");
-  };
+  const onSubmit: SubmitHandler<AuthSchema> = async (data) => {
+    try {
+      if (signState === "Sign Up") {
+        // Sign Up
+        const response = await api.post("/auth/signup", {
+          fullname: data.fullname,
+          email: data.email,
+          password: data.password,
+        });
 
+        toast.success(response.data.message || "Sign up successful!");
+        setSignState("Sign In");
+        return;
+      } else {
+        // Sign In
+        const response = await api.post("/auth/signin", {
+          email: data.email,
+          password: data.password,
+        });
+
+        toast.success(response.data.message || "Sign in successful");
+        localStorage.setItem("token", response.data.token);
+        navigate("/predictor");
+      }
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        const message = err.response?.data?.message;
+        toast.error(message || "Something went wrong");
+        console.error("Auth error:", message || err.message);
+      } else {
+        toast.error("Unexpected error occurred");
+        console.error(err);
+      }
+    }
+  };
   return (
     <div className="flex items-center justify-center px-5 mx-auto w-full">
       <div className="bg-white rounded-3xl max-w-md w-full px-8 py-6">
         <div className="flex items-center justify-center gap-2 mb-3">
-          <img src="/icons/logo.svg" alt="logo" className="h-10 w-10" />
-          <h2 className="text-2xl text-blue-700 tracking-tight font-semibold">
+          <h2 className="text-3xl text-blue-700 tracking-tight font-semibold">
             RetinaCare
           </h2>
         </div>
@@ -61,7 +93,7 @@ const AuthForm = () => {
               <TextInput
                 label="Full name"
                 name="fullname"
-                icon={<UserRound size={18} />}
+                icon={<UserRound size={20} />}
               />
             ) : null}
 
@@ -69,7 +101,7 @@ const AuthForm = () => {
               label="E-mail"
               name="email"
               type="email"
-              icon={<Mail size={18} />}
+              icon={<Mail size={20} />}
             />
 
             <PasswordInput label="Password" name="password" />
@@ -94,9 +126,9 @@ const AuthForm = () => {
               <img src="/icons/google.svg" alt="google logo" />
               <span>Continue with google</span>
             </button>
-            <p className="text-center text-sm text-gray-500">
-              Already have an acount?{" "}
-              {signState === "Sign In" ? (
+            {signState === "Sign In" ? (
+              <p className="text-center text-sm text-gray-500">
+                Don't have an account?{" "}
                 <span
                   onClick={() => {
                     setSignState("Sign Up");
@@ -105,7 +137,10 @@ const AuthForm = () => {
                 >
                   Sign Up
                 </span>
-              ) : (
+              </p>
+            ) : (
+              <p className="text-center text-sm text-gray-500">
+                Already have an account?
                 <span
                   onClick={() => {
                     setSignState("Sign In");
@@ -114,8 +149,8 @@ const AuthForm = () => {
                 >
                   Sign In
                 </span>
-              )}
-            </p>
+              </p>
+            )}
           </form>
         </FormProvider>
       </div>
