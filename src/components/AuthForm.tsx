@@ -52,7 +52,9 @@ const AuthForm = () => {
         });
 
         toast.success(response.data.message || "Sign in successful");
-        localStorage.setItem("token", response.data.token);
+        const { accessToken, refreshToken } = response.data.data.auth;
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
         navigate("/predictor");
       }
     } catch (err) {
@@ -69,7 +71,7 @@ const AuthForm = () => {
   return (
     <div className="flex items-center justify-center px-5 mx-auto w-full">
       <div className="bg-white rounded-3xl max-w-md w-full px-8 py-6">
-        <div className="flex items-center justify-center gap-2 mb-3">
+        <div className="flex items-center justify-center gap-2">
           <h2 className="text-3xl text-blue-700 tracking-tight font-semibold">
             RetinaCare
           </h2>

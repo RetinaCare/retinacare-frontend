@@ -21,7 +21,7 @@ const TextInput: FC<TextInputProps> = ({
   } = useFormContext();
   return (
     <div>
-      <label htmlFor={name} className="text-[13px] font-medium text-gray-700">
+      <label htmlFor={name} className="text-sm font-medium text-gray-700">
         {label}
       </label>
       <div className="relative focus-within:ring-2 focus-within:ring-gray-200 border-2 border-gray-300 rounded-xl">
@@ -29,7 +29,7 @@ const TextInput: FC<TextInputProps> = ({
           type={type}
           id={name}
           {...register(name)}
-          className="outline-0 text-gray-500 bg-transparent rounded-xl py-1 px-2 w-full"
+          className="outline-0 text-gray-500 bg-transparent rounded-xl py-2 px-2 w-full"
         />
         {icon && (
           <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500">

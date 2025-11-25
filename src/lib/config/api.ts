@@ -13,7 +13,7 @@ const api = axios.create({
 api.interceptors.request.use(
   async (config) => {
     const token =
-      typeof window !== "undefined" ? localStorage.getItem("access_token") : "";
+      typeof window !== "undefined" ? localStorage.getItem("accessToken") : "";
     if (config.headers) {
       config.headers.set("Authorization", `Bearer ${token}`);
     } else {

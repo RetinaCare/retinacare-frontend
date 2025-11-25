@@ -16,14 +16,14 @@ const PasswordInput: FC<PasswordInputProps> = ({ label, name }) => {
 
   return (
     <div>
-      <label htmlFor={name} className="text-[13px] font-medium text-gray-700">
+      <label htmlFor={name} className="text-sm font-medium text-gray-700">
         {label}{" "}
       </label>
       <div className="relative focus-within:ring-2 focus-within:ring-gray-200 border-2  border-gray-300 rounded-xl">
         <input
           type={visible ? "text" : "password"}
           {...register(name)}
-          className="outline-0 text-gray-500 rounded-xl py-1 px-2 w-full bg-transparent"
+          className="outline-0 text-gray-500 rounded-xl py-2 px-2 w-full bg-transparent"
         />
         <button
           type="button"
