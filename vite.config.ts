@@ -11,6 +11,13 @@ export default defineConfig({
         target: "https://retinacare-backend.ddns.net/api/v1",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
+        configure: (proxy) => {
+          proxy.on("proxyReq", (proxyReq, req) => {
+            if (req.headers.authorization) {
+              proxyReq.setHeader("Authorization", req.headers.authorization);
+            }
+          });
+        },
       },
     },
   },

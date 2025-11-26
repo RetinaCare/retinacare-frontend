@@ -1,5 +1,4 @@
-import React from "react";
-import { Activity, CheckCircle, AlertTriangle } from "lucide-react";
+import { Activity, AlertTriangle } from "lucide-react";
 import { type PredictionResult } from "../lib/validation/predictionSchema";
 
 interface ResultDisplayProps {
@@ -24,7 +23,7 @@ const PredictorResult: React.FC<ResultDisplayProps> = ({ result }) => {
     );
   }
 
-  const isHighRisk = result.riskScore > 50;
+  const isConfident = result.confidence > 50;
 
   return (
     <div
@@ -35,58 +34,40 @@ const PredictorResult: React.FC<ResultDisplayProps> = ({ result }) => {
       <div className="text-center mb-8 mt-4">
         <span
           className={`text-6xl font-bold tracking-tighter ${
-            isHighRisk ? "text-rose-500" : "text-emerald-500"
+            isConfident ? "text-rose-500" : "text-emerald-500"
           }`}
         >
-          {result.riskScore}%
+          {(result.confidence * 100).toFixed(2)}%
         </span>
-        <p className="text-gray-500 font-medium mt-2">
-          Probability of Diabetic Retinopathy
-        </p>
+        <p className="text-gray-500 font-medium mt-2">Confidence</p>
       </div>
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden relative">
           <div
             className={`h-full rounded-full transition-all duration-1000 ease-out ${
-              isHighRisk ? "bg-rose-500" : "bg-emerald-500"
+              isConfident ? "bg-rose-500" : "bg-emerald-500"
             }`}
-            style={{ width: `${result.riskScore}%` }}
+            style={{ width: `${(result.confidence * 100).toFixed(2)}%` }}
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        <div className="bg-gray-50 p-4 rounded-xl border border-slate-100 text-center">
-          <p className="text-xs text-gray-500 uppercase font-bold tracking-wider mb-1">
+      <div className="grid  gap-4 mb-8">
+        <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center">
+          <p className=" text-gray-500 uppercase font-bold tracking-wider mb-1">
             Severity
           </p>
           <p className="font-bold text-gray-800">{result.severity}</p>
         </div>
-        <div className="bg-slate-50 p-4 rounded-xl border border-gray-100 text-center">
-          <p className="text-xs text-gray-500 uppercase font-bold tracking-wider mb-1">
-            Confidence
-          </p>
-          <p className="font-bold text-gray-800">{result.confidence}%</p>
-        </div>
       </div>
 
-      <div
-        className={`p-4 rounded-xl border-l-4 ${
-          isHighRisk ? "bg-rose-50" : "bg-emerald-50"
-        } ${isHighRisk ? "border-rose-500" : "border-emerald-500"} ${
-          isHighRisk ? "text-rose-500" : "text-emerald-500"
-        }`}
-      >
+      <div className="p-4 rounded-xl border-l-4 bg-gray-50 border-gray-500 text-gray-700">
         <div className="flex gap-3">
-          {isHighRisk ? (
-            <AlertTriangle className="shrink-0" />
-          ) : (
-            <CheckCircle className="shrink-0" />
-          )}
+          <AlertTriangle size={30} className="shrink-0" />
           <div>
-            <p className="font-bold text-sm mb-1">Recommendation</p>
-            <p className="text-sm opacity-90">{result.recommendation}</p>
+            <p className="font-bold  mb-1">Recommendation</p>
+            <p className=" text-gray-800 opacity-90">{result.recommendation}</p>
           </div>
         </div>
       </div>

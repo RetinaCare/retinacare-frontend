@@ -13,6 +13,9 @@ import TextInput from "../components/TextInput";
 import PredictorResult from "../components/PredictionResult";
 import ChatBox from "../components/ChatBox";
 import { useNavigate } from "react-router";
+import api from "../lib/config/api";
+import { AxiosError } from "axios";
+import { toast } from "react-toastify";
 
 const Predictor = () => {
   const [result, setResult] = useState<PredictionResult | null>(null);
@@ -30,16 +33,35 @@ const Predictor = () => {
   const handleLogOut = () => navigate("/");
   const onSubmit: SubmitHandler<PredictionFormData> = async (data) => {
     console.log("Sending to AI:", data);
+    try {
+      const formData = new FormData();
+      formData.append("hba1cLevelPercentage", data.hbA1c.toString());
+      formData.append("durationInYears", data.duration.toString());
+      formData.append("bloodPressureInMmHg", data.systolicBp.toString());
 
-    // Simulate API Call
-    setTimeout(() => {
+      if (data.image && data.image.length > 0) {
+        formData.append("image", data.image[0]); // important
+      }
+      const response = await api.post("/predict", formData);
+      const apiData = response.data.data;
+      console.log(apiData);
+
       setResult({
-        riskScore: 82,
-        severity: "Proliferative DR",
-        confidence: 94.5,
-        recommendation: "Urgent ophthalmology referral recommended.",
+        severity: apiData.riskScore,
+        confidence: apiData.confidenceScore,
+        recommendation: apiData.recommendation,
       });
-    }, 2000);
+
+      toast.success("Prediction completed!");
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        toast.error(err.response?.data?.message || "Prediction failed");
+        console.error("Predict error:", err.response?.data?.message);
+      } else {
+        toast.error("Unexpected error occurred");
+        console.error(err);
+      }
+    }
   };
 
   return (

@@ -53,8 +53,11 @@ const AuthForm = () => {
 
         toast.success(response.data.message || "Sign in successful");
         const { accessToken, refreshToken } = response.data.data.auth;
+        const { userId } = response.data.data;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
+        localStorage.setItem("userId", userId);
+
         navigate("/predictor");
       }
     } catch (err) {
