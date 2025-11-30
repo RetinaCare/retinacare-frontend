@@ -40,7 +40,7 @@ const Predictor = () => {
       formData.append("bloodPressureInMmHg", data.systolicBp.toString());
 
       if (data.image && data.image.length > 0) {
-        formData.append("image", data.image[0]); // important
+        formData.append("image", data.image[0]);
       }
       const response = await api.post("/predict", formData);
       const apiData = response.data.data;
