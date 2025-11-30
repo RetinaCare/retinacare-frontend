@@ -23,7 +23,7 @@ const PredictorResult: React.FC<ResultDisplayProps> = ({ result }) => {
     );
   }
 
-  const isConfident = result.confidence > 50;
+  const isConfident = result.confidence < 0.5;
 
   return (
     <div
