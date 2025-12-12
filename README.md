@@ -78,6 +78,8 @@ Full documentation is available in the `/docs` folder:
 
 ## 📑 Presentation Slide (PDF)
 
+You can view the full presentation here:
+[Download Presentation PDF](./public/RetinaCare_Frontend_Presentation.pdf)
 ## 🎨 Color Palette
 
 Example:  
