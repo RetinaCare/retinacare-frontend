@@ -43,6 +43,8 @@ Your app should now be available locally at:
 http://localhost:5173/
 (or whichever port Vite assigns)
 
+## Project Structure
+
 ## Contributing
 
 Please see the contribution guidelines: [CONTRIBUTING.md](docs/CONTRIBUTING.md)
@@ -53,7 +55,18 @@ https://frontend-eosin-nu.vercel.app/
 
 ## 📸 Screenshots
 
-All screenshots are stored in the `/screenshots` folder.
+- [homepage](screenshots/homepage.png)
+- [homepage](screenshots/homepage1.png)
+- [homepage](screenshots/homepage3.png)
+- [homepage](screenshots/homepage3.png)
+- [homepage](screenshots/homepage4.png)
+- [homepage](screenshots/homepage5.png)
+- [loginpage](screenshots/loginpage.png)
+- [signuppage](screenshots/signuppage.png)
+- [predictorPage](screenshots/predictorPage.png)
+- [predictorpagewithOpenChatWidget](screenshots/predictorpagewithOpenChatWidget.png)
+- [predictorpageWithResult](screenshots/predictorpageWithResult.png)
+- [predictorpageWithResult](screenshots/predictorpageWithResult2.png)
 
 ## 📘 Documentation
 
