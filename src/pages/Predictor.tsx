@@ -32,7 +32,7 @@ const Predictor = () => {
 
   const handleLogOut = () => navigate("/");
   const onSubmit: SubmitHandler<PredictionFormData> = async (data) => {
-    console.log("Sending to AI:", data);
+    // console.log("Sending to AI:", data);
     try {
       const formData = new FormData();
       formData.append("hba1cLevelPercentage", data.hbA1c.toString());
@@ -44,14 +44,12 @@ const Predictor = () => {
       }
       const response = await api.post("/predict", formData);
       const apiData = response.data.data;
-      console.log(apiData);
-
+      // console.log(apiData);
       setResult({
         severity: apiData.riskScore,
         confidence: apiData.confidenceScore,
         recommendation: apiData.recommendation,
       });
-
       toast.success("Prediction completed!");
     } catch (err) {
       if (err instanceof AxiosError) {
@@ -63,7 +61,6 @@ const Predictor = () => {
       }
     }
   };
-
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col  text-gray-800">
       <header className="bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center shadow-sm sticky top-0 z-10">
@@ -98,7 +95,6 @@ const Predictor = () => {
                   setValue("image", files as FileList, { shouldValidate: true })
                 }
               />
-
               <div className="space-y-4">
                 <TextInput label="HbA1c Level (%)" name="hbA1c" type="number" />
                 <TextInput
@@ -112,7 +108,6 @@ const Predictor = () => {
                   name="systolicBp"
                 />
               </div>
-
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -132,11 +127,9 @@ const Predictor = () => {
           <PredictorResult result={result} />
         </div>
       </main>
-
       {/* Floating Chat */}
       <ChatBox />
     </div>
   );
 };
-
 export default Predictor;
