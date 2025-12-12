@@ -55,12 +55,9 @@ https://frontend-eosin-nu.vercel.app/
 
 ## Screenshots
 
-<details>
-<summary>Click to view screenshots</summary>
-
 ![homepage](screenshots/homepage.png)
 ![homepage](screenshots/homepage1.png)
-![homepage](screenshots/homepage3.png)
+![homepage](screenshots/homepage2.png)
 ![homepage](screenshots/homepage3.png)
 ![homepage](screenshots/homepage4.png)
 ![homepage](screenshots/homepage5.png)
@@ -69,9 +66,7 @@ https://frontend-eosin-nu.vercel.app/
 ![predictorPage](screenshots/predictorPage.png)
 ![predictorpagewithOpenChatWidget](screenshots/predictorpagewithOpenChatWidget.png)
 ![predictorpageWithResult](screenshots/predictorpageWithResult.png)
-![predictorpageWithResult](screenshots/predictorpageWithResult2.png)
-
-</details>
+![predictorpageWithResult](screenshots/predictorPageWithResult2.png)
 
 ## Documentation
 
@@ -84,7 +79,6 @@ https://frontend-eosin-nu.vercel.app/
 You can view the full presentation here:
 [Download Presentation PDF](./public/RetinaCare_Frontend_Presentation.pdf)
 
-## 🎨 Color Palette
+## Color Palette
 
-Example:  
 https://coolors.co/23408e-1447e6-5de7a9-ffffff-6a7282-1e2939
