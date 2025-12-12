@@ -81,7 +81,10 @@ https://frontend-eosin-nu.vercel.app/
 
 ## Presentation Slide (PDF)
 
-## Color Palette
+You can view the full presentation here:
+[Download Presentation PDF](./public/RetinaCare_Frontend_Presentation.pdf)
+
+## 🎨 Color Palette
 
 Example:  
 https://coolors.co/23408e-1447e6-5de7a9-ffffff-6a7282-1e2939
