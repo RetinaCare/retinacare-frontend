@@ -54,18 +54,18 @@ https://frontend-eosin-nu.vercel.app/
 
 ## Screenshots
 
-<img src="homepage.png">
-<img src="homepage1.png">
-<img src="homepage2.png">
-<img src="homepage3.png">
-<img src="homepage4.png">
-<img src="homepage5.png">
-<img src="loginpage.png">
-<img src="signuppage.png">
-<img src="predictorpage.png">
-<img src="predictorpagewithopenchatwidget.png">
-<img src="predictorpagewithresult.png">
-<img src="predictorpagewithresult2.png">
+<img src="Screenshots/homepage.png">
+<img src="Screenshots/homepage1.png">
+<img src="Screenshots/homepage2.png">
+<img src="Screenshots/homepage3.png">
+<img src="Screenshots/homepage4.png">
+<img src="Screenshots/homepage5.png">
+<img src="Screenshots/loginpage.png">
+<img src="Screenshots/signuppage.png">
+<img src="Screenshots/predictorpage.png">
+<img src="Screenshots/predictorpagewithopenchatwidget.png">
+<img src="Screenshots/predictorpagewithresult.png">
+<img src="Screenshots/predictorpagewithresult2.png">
 
 ## Documentation
 
