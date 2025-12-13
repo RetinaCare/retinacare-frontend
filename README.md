@@ -54,18 +54,18 @@ https://frontend-eosin-nu.vercel.app/
 
 ## Screenshots
 
-![homepage](screenshots/homepage.png)
-![homepage](screenshots/homepage1.png)
-![homepage](screenshots/homepage2.png)
-![homepage](screenshots/homepage3.png)
-![homepage](screenshots/homepage4.png)
-![homepage](screenshots/homepage5.png)
-![loginpage](screenshots/loginpage.png)
-![signuppage](screenshots/signuppage.png)
-![predictorPage](screenshots/predictorPage.png)
-![predictorpagewithOpenChatWidget](screenshots/predictorpagewithOpenChatWidget.png)
-![predictorpageWithResult](screenshots/predictorpageWithResult.png)
-![predictorpageWithResult](screenshots/predictorPageWithResult2.png)
+<img src="homepage.png">
+<img src="homepage1.png">
+<img src="homepage2.png">
+<img src="homepage3.png">
+<img src="homepage4.png">
+<img src="homepage5.png">
+<img src="loginpage.png">
+<img src="signuppage.png">
+<img src="predictorpage.png">
+<img src="predictorpagewithopenchatwidget.png">
+<img src="predictorpagewithresult.png">
+<img src="predictorpagewithresult2.png">
 
 ## Documentation
 
@@ -77,6 +77,8 @@ https://frontend-eosin-nu.vercel.app/
 
 You can view the full presentation here:
 [Download Presentation PDF](./public/RetinaCare_Frontend_Presentation.pdf)
+
+## Presentation Slide
 
 ## Color Palette
 
