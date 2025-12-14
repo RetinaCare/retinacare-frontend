@@ -42,8 +42,6 @@ Your app should now be available locally at:
 http://localhost:5173/
 (or whichever port Vite assigns)
 
-## Project Structure
-
 ## Contributing
 
 Please see the contribution guidelines: [CONTRIBUTING.md](docs/CONTRIBUTING.md)
@@ -77,8 +75,6 @@ https://frontend-eosin-nu.vercel.app/
 
 You can view the full presentation here:
 [Download Presentation PDF](./public/RetinaCare_Frontend_Presentation.pdf)
-
-## Presentation Slide
 
 ## Color Palette
 
