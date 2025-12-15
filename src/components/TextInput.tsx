@@ -7,6 +7,7 @@ interface TextInputProps {
   type?: string;
   icon?: React.ReactNode;
   error?: string;
+  hint?: string;
 }
 
 const TextInput: FC<TextInputProps> = ({
@@ -14,6 +15,7 @@ const TextInput: FC<TextInputProps> = ({
   name,
   type = "text",
   icon,
+  hint,
 }) => {
   const {
     register,
@@ -37,6 +39,7 @@ const TextInput: FC<TextInputProps> = ({
           </span>
         )}
       </div>
+      {!errors[name] && hint && <p className="text-xs text-gray-500">{hint}</p>}
       {errors[name] && (
         <p className="text-red-500 text-xs">
           {String(errors[name]?.message ?? "")}

@@ -91,21 +91,29 @@ const Predictor = () => {
             >
               <InputFile
                 name="image"
+                hint="Upload a clear retinal fundus image. Exactly one image is required."
                 onFileSelect={(files) =>
                   setValue("image", files as FileList, { shouldValidate: true })
                 }
               />
               <div className="space-y-4">
-                <TextInput label="HbA1c Level (%)" name="hbA1c" type="number" />
+                <TextInput
+                  label="HbA1c Level (%)"
+                  name="hbA1c"
+                  type="number"
+                  hint="Allowed range: 4 – 11%"
+                />
                 <TextInput
                   label="Duration of Diabetes (years)"
                   type="number"
                   name="duration"
+                  hint="Must be at least 1 year"
                 />
                 <TextInput
                   label="Systolic BP (mmHg)"
                   type="number"
                   name="systolicBp"
+                  hint="Allowed range: 70 – 250 mmHg"
                 />
               </div>
               <button

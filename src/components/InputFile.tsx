@@ -5,9 +5,10 @@ import { useFormContext } from "react-hook-form";
 interface FileUploadProps {
   name: string;
   onFileSelect: (files: FileList | null) => void;
+  hint?: string;
 }
 
-const InputFile: React.FC<FileUploadProps> = ({ name, onFileSelect }) => {
+const InputFile: React.FC<FileUploadProps> = ({ name, onFileSelect, hint }) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const {
@@ -62,6 +63,9 @@ const InputFile: React.FC<FileUploadProps> = ({ name, onFileSelect }) => {
             </>
           )}
         </div>
+        {!errors[name] && hint && (
+          <p className="text-xs text-gray-500 mt-1">{hint}</p>
+        )}
         {errors[name] && (
           <p className="text-red-500 text-xs mt-1">
             {String(errors[name]?.message ?? "")}
